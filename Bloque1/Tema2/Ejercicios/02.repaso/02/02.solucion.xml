@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<alumno xmlns:xsi="http://www.w3c.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./02.solucion.xsd">
+  <persona nacimiento="10-20">
+    <datos>
+      <nombre>Pepe</nombre>
+      <apellidos>Garcia</apellidos>
+      <dni>25390952X</dni>
+    </datos>
+    <comentario>repetidor</comentario>
+  </persona>
+  <datos_academicos>
+    <curso>1ASIR</curso>
+    <asignatura>
+      <nombre>Lenguajes de Marcas</nombre>
+      <horas>4</horas>
+      <profesor>Juan Moreno</profesor>
+    </asignatura>
+    <asignatura>
+      <nombre>Fundamentos del Hardware</nombre>
+      <horas>3</horas>
+      <profesor>Virginia López</profesor>
+    </asignatura>
+  </datos_academicos>
+</alumno>

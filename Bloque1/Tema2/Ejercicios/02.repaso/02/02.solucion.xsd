@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:element name="alumno">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="persona" type="tipo_persona" minOccurs="1" />
+                <xsd:element name="datos_academicos" type="tipo_datos_academicos" minOccurs="1" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+
+    <xsd:complexType name="tipo_persona">
+        <xsd:sequence>
+            <xsd:element name="datos">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="nombre" type="xsd:string" />
+                        <xsd:element name="apellidos" type="xsd:string" />
+                        <xsd:element name="dni" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="comentario" type="xsd:string" minOccurs="0" />
+        </xsd:sequence>
+        <xsd:attribute name="nacimiento" type="xsd:date" />
+    </xsd:complexType>
+
+    <xsd:complexType name="tipo_datos_academicos">
+        <xsd:sequence>
+            <xsd:element name="grupo" type="xsd:string" />
+
+            <xsd:element name="asignatura" minOccurs="1" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="nombre" type="xsd:string" />
+                        <xsd:element name="horas" type="xsd:positiveInteger" />
+                        <xsd:element name="profesor" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+</xsd:schema>
