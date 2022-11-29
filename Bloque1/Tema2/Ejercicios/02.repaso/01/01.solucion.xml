@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<catalogoLibros xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./01.solucion.xsd">
+<catalogoLibros xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./01.solucion.xsd" >
 
     <libro categoria="ficcion" enstock="true">
         <titulo>Los hombres que no amaban a las mujeres</titulo>
