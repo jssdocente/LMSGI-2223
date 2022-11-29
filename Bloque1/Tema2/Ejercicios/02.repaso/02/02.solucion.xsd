@@ -30,8 +30,7 @@
 
     <xsd:complexType name="tipo_datos_academicos">
         <xsd:sequence>
-            <xsd:element name="grupo" type="xsd:string" />
-
+            <xsd:element name="curso" type="xsd:string" />
             <xsd:element name="asignatura" minOccurs="1" maxOccurs="unbounded">
                 <xsd:complexType>
                     <xsd:sequence>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+
+    <!-- ================================ -->
+    <!-- Definiciones de tipos          -->
+    <!-- ================================ -->
+
+    <xsd:complexType name="tipoPelicula">
+        <xsd:sequence>
+            <xsd:element ref="titulo" />
+            <xsd:element ref="titulo_original" minOccurs="0" />
+            <xsd:element ref="nacionalidad" />
+            <xsd:element ref="genero" />
+            <xsd:choice>
+                <xsd:element ref="clasificacion" />
+                <xsd:element ref="sin_clasificar" />
+            </xsd:choice>
+            <xsd:element ref="sinopsis" />
+            <xsd:element ref="director" />
+            <xsd:element ref="reparto" />
+            <xsd:element ref="web" minOccurs="0" />
+            <xsd:element ref="cartel" minOccurs="0" />
+        </xsd:sequence>
+        <xsd:attribute name="codigo" type="xsd:positiveInteger" />
+        <xsd:attribute name="duracion" type="xsd:positiveInteger" />
+        <xsd:attribute name="año" type="xsd:positiveInteger" default="2003" />
+
+    </xsd:complexType>
+
+    <xsd:complexType name="tipoReparto">
+        <xsd:sequence>
+            <xsd:element ref="actor" maxOccurs="unbounded" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="tipoClasificacion">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute name="edad" type="tipoEdad" use="required" />
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:simpleType name="tipoEdad">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="tp" />
+            <xsd:enumeration value="8" />
+            <xsd:enumeration value="12" />
+            <xsd:enumeration value="16" />
+            <xsd:enumeration value="18" />
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- ================================ -->
+    <!-- Elementos de tipo simple    -->
+    <!-- ================================ -->
+    <xsd:element name="titulo" type="xsd:string" />
+    <xsd:element name="titulo_original" type="xsd:string" />
+    <xsd:element name="nacionalidad" type="xsd:string" />
+    <xsd:element name="genero" type="xsd:string" />
+    <xsd:element name="clasificacion" type="tipoClasificacion" />
+    <xsd:element name="sin_clasificar" />
+    <xsd:element name="sinopsis" type="xsd:string" />
+    <xsd:element name="director" type="xsd:string" />
+    <xsd:element name="reparto" type="tipoReparto" />
+    <xsd:element name="web" type="xsd:string" />
+    <xsd:element name="cartel" type="xsd:string" />
+    <xsd:element name="actor" type="xsd:string" />
+
+    <!-- ================================ -->
+    <!-- Elementos de tipo complejo    -->
+    <!-- ================================ -->
+
+    <xsd:element name="cartelera">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="pelicula" maxOccurs="unbounded" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="pelicula" type="tipoPelicula" />
+
+</xsd:schema>
