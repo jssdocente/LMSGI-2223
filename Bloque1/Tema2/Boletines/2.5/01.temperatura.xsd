@@ -1,0 +1,52 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="registro_temperatura">
+
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="provincia" type="xsd:string" />
+                <xsd:element name="fecha" type="xsd:date" />
+                <xsd:element name="temperatura_minima" type="xsd:integer" />
+                <xsd:element name="temperatura_maxima" type="xsd:integer" />
+                <xsd:element name="incidencias" type="tipo_incidencias" />
+
+            </xsd:sequence>
+        </xsd:complexType>
+
+    </xsd:element>
+
+    <xsd:complexType name="tipo_incidencias">
+        <xsd:sequence>
+            <xsd:element name="incidencia"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+    <xsd:simpleType name="tipo_att_clima">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="frio" />
+            <xsd:enumeration value="nieve" />
+            <xsd:enumeration value="lluvia" />
+            <xsd:enumeration value="calor" />
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="tipo_att_severidad">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="alta" />
+            <xsd:enumeration value="media" />
+            <xsd:enumeration value="baja" />
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:element name="incidencia">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="longitudMaxima">
+                    <xsd:attribute name="prodid" type="xsd:string" use="optional" />
+                </xsd:extension>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+
+
+</xsd:schema>
