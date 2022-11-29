@@ -5,8 +5,8 @@
             <xsd:sequence>
                 <xsd:element name="provincia" type="xsd:string" />
                 <xsd:element name="fecha" type="xsd:date" />
-                <xsd:element name="temperatura_minima" type="xsd:integer" />
-                <xsd:element name="temperatura_maxima" type="xsd:integer" />
+                <xsd:element name="temperatura_minima" type="tipo_temperatura" />
+                <xsd:element name="temperatura_maxima" type="tipo_temperatura" />
                 <xsd:element name="incidencias" type="tipo_incidencias" />
 
             </xsd:sequence>
@@ -14,9 +14,16 @@
 
     </xsd:element>
 
+    <xsd:simpleType name="tipo_temperatura">
+        <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-50"/>
+            <xsd:maxInclusive value="50"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
     <xsd:complexType name="tipo_incidencias">
         <xsd:sequence>
-            <xsd:element name="incidencia"></xsd:element>
+            <xsd:element name="incidencia" minOccurs="1" maxOccurs="unbounded"/>
         </xsd:sequence>
     </xsd:complexType>
 
@@ -40,11 +47,8 @@
 
     <xsd:element name="incidencia">
         <xsd:complexType>
-            <xsd:simpleContent>
-                <xsd:extension base="longitudMaxima">
-                    <xsd:attribute name="prodid" type="xsd:string" use="optional" />
-                </xsd:extension>
-            </xsd:simpleContent>
+            <xsd:attribute name="nombre" type="tipo_att_clima"></xsd:attribute>
+            <xsd:attribute name="severidad" type="tipo_att_severidad"></xsd:attribute>
         </xsd:complexType>
     </xsd:element>
 
