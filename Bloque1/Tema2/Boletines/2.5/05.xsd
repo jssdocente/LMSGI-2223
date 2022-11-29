@@ -1,0 +1,85 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="discos">
+       <xsd:complexType>
+        <xsd:sequence>
+            <xsd:element name="grupo" type="tipo_grupo" maxOccurs="unbounded" />
+            <xsd:element name="disco" type="tipo_disco" maxOccurs="unbounded" />
+        </xsd:sequence>
+       </xsd:complexType> 
+    </xsd:element>
+
+    <xsd:complexType name="tipo_grupo">
+        <xsd:sequence>
+            <xsd:element name="nombre" type="tipo_texto_50"/>
+            <xsd:element name="miembro" type="tipo_texto_50" minOccurs="1" maxOccurs="unbounded"/>
+            <xsd:element name="nacionalidad" type="tipo_texto_50" minOccurs="0"/>
+            <xsd:choice minOccurs="0">
+                <xsd:sequence>
+                    <xsd:element name="web" type="tipo_restricion_web"/>
+                    <xsd:element name="email" type="tipo_restricion_web"/>
+                </xsd:sequence>
+                <xsd:sequence>
+                    <xsd:element name="calle" type="tipo_texto_50"/>
+                    <xsd:element name="localidad" type="tipo_texto_50"/>
+                </xsd:sequence>
+            </xsd:choice>
+        </xsd:sequence>
+        <xsd:attribute name="nom" type="tipo_texto_50"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="tipo_disco">
+        <xsd:sequence>
+            <xsd:element name="interprete">
+                <xsd:complexType>
+                    <xsd:attribute name="nom" type="tipo_texto_50" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="titulo" type="tipo_texto_50"/>
+            <xsd:element name="discografica" type="tipo_texto_50"/>
+            <xsd:element name="anio">
+                <xsd:complexType>
+                    <xsd:attribute name="mes" type="tipo_mes_enumerado" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="stock">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:integer">
+                        <xsd:minInclusive value="0"/>
+                        <xsd:maxInclusive value="200"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="precio" type="xsd:float" use="required"/>
+    </xsd:complexType>
+
+    <xsd:simpleType name="tipo_texto_50">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="tipo_mes_enumerado">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="enero"/>
+            <xsd:enumeration value="febrero"/>
+            <xsd:enumeration value="marzo"/>
+            <xsd:enumeration value="abril"/>
+            <xsd:enumeration value="mayo"/>
+            <xsd:enumeration value="junio"/>
+            <xsd:enumeration value="julio"/>
+            <xsd:enumeration value="agosto"/>
+            <xsd:enumeration value="septiembre"/>
+            <xsd:enumeration value="octubre"/>
+            <xsd:enumeration value="noviembre"/>
+            <xsd:enumeration value="diciembre"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="tipo_restricion_web">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-z]*ponprecioamimusica\.org[a-z\/]*"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+</xsd:schema>
