@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Se pide elaborar un esquema que valide un fichero con las siguientes restricciones:
+
+El elemento raíz es articulos. Dicho elemento raíz debe llevar siempre un atributo fechaGeneración.
+Dentro de la raíz puede haber uno o varios de cualquiera de los siguientes elementos: monitor, teclado o raton. 
+Cualquiera de los tres elementos puede llevar un atributo codigo que tiene siempre la estructura «tres letras, guión, tres letras, guión, tres cifras».
+ Además, cualquiera de los tres debe llevar dentro y en primer lugar un elemento descripción que contiene texto.
+Un monitor debe llevar (aparte de la descripción que va en primer lugar) un elemento resolución que a su vez debe 
+llevar dentro dos elementos y en este orden ancho y alto. Tanto ancho, como alto deben llevar siempre dentro un entero positivo.
+Un ratón debe llevar (aparte de la descripción que va en primer lugar).
+
+Además, el peso lleva siempre dentro un atributo unidad que solo puede valer «g» o «cg».
+Intentar extraer los tipos o restricciones compartidas mas de una vez. 
+Por ejempo, el atributo codigo tiene una restricción y este atributo está presente en Monitor, Raton y Reclado. 
+Además también tienen un elemento “descripcion” que está presente en los tres.
+
+-->
+
+<!--Obligatorio el tener fechaGeneracion-->
+<articulos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./03.xsd"
+fechageneracion="2018-03-01">
+
+    <!--El atributo codigo es optativo siempre-->
+    <monitor codigo="AAA-DDD-222">
+        <!--Descripcion obligatoria-->
+        <descripcion>Monitor de x pulgadas...</descripcion>
+        <resolucion>
+            <ancho>1920</ancho>
+            <alto>1400</alto>
+        </resolucion>
+    </monitor>
+    <raton>
+        <!--Descripcion obligatoria-->
+        <descripcion>Raton ergonomico...</descripcion>
+        <!--La unidad es g o cg-->
+        <peso unidad="g">100</peso>
+    </raton>
+    <teclado codigo="DDD-XXX-111">
+        <!---Descripcion obligatoria-->
+        <descripcion>Teclado estándar</descripcion>
+    </teclado>
+    <monitor codigo="CCC-GGG-666">
+        <!--Descripcion obligatoria-->
+        <descripcion>Monitor de x pulgadas...</descripcion>
+        <resolucion>
+            <ancho>1400</ancho>
+            <alto>1000</alto>
+        </resolucion>
+    </monitor>
+</articulos>

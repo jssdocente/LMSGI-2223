@@ -1,0 +1,73 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="articulos">
+        
+        <xsd:complexType>
+            <xsd:choice maxOccurs="4">
+                <xsd:element name="monitor" type="tipoMonitor"/>
+                <xsd:element name="raton" type="tipoRaton"/>
+                <xsd:element name="teclado" type="tipoTeclado"/>
+            </xsd:choice>
+            <xsd:attribute name="fechageneracion" type="xsd:date"/>
+        </xsd:complexType>
+
+    </xsd:element>
+
+    <xsd:complexType name="tipoMonitor">
+        <xsd:sequence>
+            <xsd:element ref="descripcion"/>
+            <xsd:element name="resolucion" type="tipoResolucion"></xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="codigo" type="tipoAttCodigo" use="optional" />
+
+    </xsd:complexType>
+
+    <xsd:complexType name="tipoRaton">
+        <xsd:sequence>
+            <xsd:element ref="descripcion"/>
+            <xsd:element name="peso" type="tipoPeso"/>
+        </xsd:sequence>
+        <xsd:attribute name="codigo" type="tipoAttCodigo" use="optional" />
+    </xsd:complexType>
+
+    <xsd:complexType name="tipoTeclado">
+        <xsd:sequence>
+            <xsd:element ref="descripcion"/>
+        </xsd:sequence>
+        <xsd:attribute name="codigo" type="tipoAttCodigo" use="optional" />
+    </xsd:complexType>
+
+    <xsd:element name="descripcion" type="xsd:string"/>
+
+    <!-- Tipos de Monitor-->
+    <xsd:complexType name="tipoResolucion">
+        <xsd:sequence>
+            <xsd:element name="ancho" type="xsd:positiveInteger"/>
+            <xsd:element name="alto" type="xsd:positiveInteger"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- Tipos de Raton-->
+    <xsd:complexType name="tipoPeso">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:positiveInteger">
+                <xsd:attribute name="unidad" type="tipoAttUnidad"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <!-- Tipo-atributo-codigo-->
+    <xsd:simpleType name="tipoAttCodigo">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[A-Z]{3}\-[A-Z]{3}\-[0-9]{3}"></xsd:pattern>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- Tipo-atributo-unidad-->
+    <xsd:simpleType name="tipoAttUnidad">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="g"/>
+            <xsd:enumeration value="cg"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+</xsd:schema>
