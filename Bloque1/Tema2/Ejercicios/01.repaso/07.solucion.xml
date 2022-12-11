@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE factura SYSTEM "./07.solucion.dtd">
+<factura fecha-emision="18/12/2013" numero="27" >
+    <emisor>
+       <nombre>Librería Perez</nombre>
+       <CIF>44555666B</CIF>
+       <telefono>7778889999</telefono>
+    </emisor>
+    <cliente>
+        <nombre>Biblioteca Txantrea</nombre>
+        <CIF>33111222A</CIF>
+        <telefono>333999444</telefono>
+    </cliente>
+    <detalle importe="85€">
+        <linea codigo-articulo="aw7" tipo="Libro">
+            <descripcion>Analiltica Web 2.0</descripcion>
+            <cantidad>1</cantidad>
+            <oferta/>
+            <pvp>25€</pvp>
+        </linea>
+        <linea codigo-articulo="CP5" tipo="DVD">
+            <descripcion>Curso de HTML</descripcion>
+            <cantidad>2</cantidad>
+            <pvp>30€</pvp>
+        </linea>
+    </detalle>
+</factura>

@@ -1,9 +1,4 @@
-Dado un documento XML generar el fichero XSD que valide el fichero, 
-a partir de los datos y los comentarios incluidos en el fichero XML
-
-```xml
-
-<listacomponentes>
+<listacomponentes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./01.solucion.xsd">
     <!--Obligatoria fecha entrega-->
     <componente entrega="2018-03-15">
         <fabricante>
@@ -26,4 +21,3 @@ a partir de los datos y los comentarios incluidos en el fichero XML
         </peso>
     </componente>
 </listacomponentes>
-```

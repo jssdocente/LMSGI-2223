@@ -1,0 +1,9 @@
+<!ELEMENT catalogo (producto)*>
+<!ELEMENT producto (nombre,descripcion?,(pais|origen))*>
+<!ATTLIST producto codigo CDATA #IMPLIED>
+<!ELEMENT ventaacredito (fechafinpago?,cantidad)>
+<!ELEMENT ventainmediata (cantidad,divisa)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT descripcion (#PCDATA)>
+<!ELEMENT origen (#PCDATA)>
+<!ELEMENT pais (#PCDATA)>

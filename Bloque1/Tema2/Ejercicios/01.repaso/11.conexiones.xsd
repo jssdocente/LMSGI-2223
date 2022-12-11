@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <xsd:element name="registro">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:group ref="personas"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:group name="personas">
+    <xsd:sequence>
+        <xsd:element name="usuario" minOccurs="0" maxOccurs="unbounded" type="tipoPersona"/>
+        <xsd:element name="empleado" minOccurs="0" maxOccurs="unbounded" type="tipoPersonaAmpliado"/>
+    </xsd:sequence>
+  </xsd:group>
+
+  <xsd:complexType name="tipoPersonaAmpliado">
+    <xsd:complexContent>
+      <xsd:extension base="tipoPersona">
+        <xsd:sequence>
+          <xsd:element name="departamento">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:group ref="departamentosEmpresa"/>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="tipoPersona">
+    <xsd:sequence>
+      <xsd:group ref="datosPersona"/>
+    </xsd:sequence>
+    <xsd:attribute name="identificador" use="required">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[UE]\d{1,5}"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+
+  <xsd:group name="datosPersona">
+    <xsd:sequence>
+
+      <xsd:element name="apellidos-y-nombre">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-zA-Z ]{1,30},[a-zA-Z ]{1,20}"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+
+      <xsd:element name="email">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-z]{1,15}@[a-z]{1,25}[.][a-z]{2,4}"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+
+      <xsd:element name="conexiones">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="conexión" minOccurs="0"
+             maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:simpleContent>
+                  <xsd:extension base="xsd:positiveInteger">
+                    <xsd:attributeGroup ref="atributosConexion"/>
+                  </xsd:extension>
+                </xsd:simpleContent>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+    </xsd:sequence>
+  </xsd:group>
+
+  <xsd:attributeGroup name="atributosConexion">
+    <xsd:attribute name="fecha" type="xsd:date" use="required"/>
+    <xsd:attribute name="hora" type="xsd:time" use="required"/>
+  </xsd:attributeGroup>
+
+  <xsd:group name="departamentosEmpresa">
+    <xsd:choice>
+      <xsd:element name="administración"/>
+      <xsd:element name="informática"/>
+      <xsd:element name="marketing"/>
+    </xsd:choice>
+  </xsd:group>
+  
+</xsd:schema>
