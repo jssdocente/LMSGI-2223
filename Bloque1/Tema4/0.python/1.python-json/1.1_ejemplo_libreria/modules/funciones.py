@@ -32,3 +32,29 @@ def seleccionar_por_precios(doc,precioMax,precioMin):
     
     return booksInPrice
 
+def filtrar_x_titulo(doc,filterTitle):
+    books = getBooks(doc)
+    
+    booksResult = []
+
+    for book in books:
+        title = str(book["title"]["__text"])
+        if title.startswith(filterTitle):
+            booksResult.append(book)
+
+    return booksResult
+
+
+def filtrar_x_lista_autores(doc,listaAutores):
+    books = getBooks(doc)
+
+    booksResult = []
+
+    for book in books:
+        autor = str(book["author"])
+        if autor in listaAutores:
+            booksResult.append(book)
+
+
+    return booksResult
+
