@@ -2,8 +2,6 @@ import os
 import requests
 import constants as ct
 from telegram import Location
-from dotenv import load_dotenv
-from box import Box
 
 # Utilizar la Api de RapidAPI <Forward & Reverse Geocoding>. Se necesita registro. Usar email@iesarroyoharnina.
 def getCityByLocation(location :Location):
