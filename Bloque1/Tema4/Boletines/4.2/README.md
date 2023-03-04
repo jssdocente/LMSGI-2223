@@ -2,8 +2,11 @@
 # TiempoBot
 TiempoBot es un Bot es un Bot que muestra la previsión del tiempo y da alguna información territorial de españa, como provincias, municipios, ...
 
+## Recursos
+Este trabajo pertenece al proyecto de trabajo para la asigantura LMSGI [Boletín 4.2](https://azure-brake-762.notion.site/Bolet-n-4-2-3198e25157a54d36a23f34991a53e3b8)
 
-## Installation
+
+## Instalación
 Primero clona el proyecto de la asignatura y instala los requerimientos.
 ```bash
 $ git clone https://github.com/jssdocente/LMSGI-2223.git
