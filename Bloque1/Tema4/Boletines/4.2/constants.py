@@ -6,8 +6,7 @@ class Constants:
 
     WEATHER_API_KEY = '<your-open-weather-map-api-key>'
 
-    WELCOME_MESSAGE = 'Welcome to ChivalrouS_Bot. I am here for make easier your life... :)'
-    ABOUT_MESSAGE = 'Created by chivalrous'
+    RAPID_API_TOKEN_GEOREF='d3b3d31c64msh3bdc45477fc8f12p1d7593jsn5864370762b0'
 
     ERROR_NOT_SELECTED_COMMAND = 'Please select a command first. \n'
     ERROR_NOT_SELECTED_COMMAND += '[Example: /weather]'

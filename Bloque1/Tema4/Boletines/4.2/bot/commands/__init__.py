@@ -5,4 +5,5 @@ __all__ = [
     "tiempo_actual_handler",
     "tiempo_location_handler",
     "tiempo_prevision_handlers",
+    "crypto_handlers",
     ]

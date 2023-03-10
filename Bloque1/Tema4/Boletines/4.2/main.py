@@ -3,7 +3,7 @@ import os
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, MessageHandler, filters
 
-from bot.commands import *  # importamos el fichero commandHandler.py (que contiene las funciones que manejan los comandos)
+from bot.commands import *  # importamos todos los comandos (que contiene las funciones que manejan los comandos)
 import constants as ct # importamos el fichero constants.py (que contiene las constantes)
 
 # EL FICHERO MAIN.PY DEBE CONTENER EL CÓDIGO QUE SE EJECUTA CUANDO SE LANZA EL BOT DESDE LA CONSOLA
@@ -39,8 +39,11 @@ if __name__ == '__main__':
     cmdPrevisionHandler = CommandHandler('prevision', tiempo_prevision_handlers.prevision_handler)
     application.add_handler(cmdPrevisionHandler)
 
+    cmdPrevisionHandler = CommandHandler('crypto', crypto_handlers.crypto_handler)
+    application.add_handler(cmdPrevisionHandler)
 
-
+    locationMessageHandler = MessageHandler(filters.LOCATION, generic_handlers.location_handler)
+    application.add_handler(locationMessageHandler)
 
 
 

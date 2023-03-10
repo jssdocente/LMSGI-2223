@@ -10,10 +10,11 @@ from bot.funciones import *
 async def start_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = ("\n"
         "🤖 Hola, Soy un bot! \n"
-        "Estas son mis habilidades:\n\n"
+        "**Estas son mis habilidades**:\n\n"
         "/tiempo <cod.municipio> - Tiempo actual\n"
         "/tiempo <municipio>     - Tiempo actual\n"
         "/prevision <municipio> - Previsión tiempo\n"
+        "/loc - Previsión tiempo\n"
         "..."
     )
     await context.bot.send_message(chat_id=update.effective_chat.id, text=message,parse_mode="markdown")
@@ -31,4 +32,4 @@ async def location_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         context.bot.send_message(chat_id=update.effective_chat.id, text="Lo siento no sé en qué ciudad está 🤔")    
 
     #Indicar en qué ciudad está el usuario.
-    await context.bot.send_message(chat_id=update.effective_chat.id, text=f"Usted está en {resp['city']}")
+    await context.bot.send_message(chat_id=update.effective_chat.id, text=f"Usted está en {resp['city']}\nEn la dirección: {resp['description']}")

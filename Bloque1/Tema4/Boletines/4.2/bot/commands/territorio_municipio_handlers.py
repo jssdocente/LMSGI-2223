@@ -3,7 +3,7 @@ from telegram.ext import ContextTypes
 from bot.funciones import *
 
 
-async def municipios_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+def municipios_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """
     Función que se encarga de manejar el comando /municipios
     """
