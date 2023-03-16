@@ -1,6 +1,6 @@
 estado_cielo = {
    "11": {
-    "emoji": '📶',
+    "emoji": '',
     "description": "Despejado",
    },
    "12": {

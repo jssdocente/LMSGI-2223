@@ -37,7 +37,7 @@ def getListaProvincias():
     for provinciaDict in provinciasRetornadas:
          listaProvincias.append(
             {
-               "nombre": provinciaDict["NOMBRE_PROVINCIA"],
+               "nombre": provinciaDict["NOMBRE_PROVINCIA"].upper(),
                "codigo": provinciaDict["CODPROV"],
                "region": provinciaDict["COMUNIDAD_CIUDAD_AUTONOMA"],
             }
@@ -47,3 +47,19 @@ def getListaProvincias():
         "num_provincias": len(listaProvincias),
         "provincias": listaProvincias
     }
+
+
+
+def getListaProvincias():
+    """
+    Retorna todas las provincias:
+   {
+        "num_provincias": len(listaProvincias),
+        "provincias": listaProvincias
+    }
+    """
+    # Aqui se llama a la petición por el método GET (obtener)
+    response = requests.get("https://www.el-tiempo.net/api/json/v2/provincias")
+
+    if response.status_code!=200:
+        return None
