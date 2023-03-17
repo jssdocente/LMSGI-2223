@@ -5,6 +5,7 @@ from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, Messa
 
 from bot.commands import *  # importamos todos los comandos (que contiene las funciones que manejan los comandos)
 import constants as ct # importamos el fichero constants.py (que contiene las constantes)
+import utils.cache as cache # importamos el fichero cache.py (que contiene la caché)
 
 # EL FICHERO MAIN.PY DEBE CONTENER EL CÓDIGO QUE SE EJECUTA CUANDO SE LANZA EL BOT DESDE LA CONSOLA
 # DEBE ESTAR LO MÁS LIMPIO POSIBLE, SIN CÓDIGO DE MÁS, PARA QUE SEA FÁCIL DE ENTENDER Y DE MODIFICAR
@@ -52,6 +53,9 @@ if __name__ == '__main__':
     #Utiliza en caso de que el comando no sea reconocido
     unknown_handler = MessageHandler(filters.COMMAND,generic_handlers.unknown_handler)
     application.add_handler(unknown_handler)
+
+    # Cargar la cache antes de iniciar el bot
+    cache.loadCache()
     
     #Queda esperando a que el usuario introduzca comandos..
     application.run_polling()
