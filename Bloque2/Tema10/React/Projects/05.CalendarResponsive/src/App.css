@@ -1,0 +1,44 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.calendar {
+  max-width: 58rem;
+  margin: 0 auto;
+}
+
+
+
+.month ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.month .month-header-days {
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+}
+
+.month .month-header-days li {
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #999;
+}
+
+.month .month-days {
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+}
+
+.month .month-days li {
+  text-align: right;
+}
+
+
