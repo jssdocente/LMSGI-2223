@@ -1,0 +1,62 @@
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.output {
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  width: 43rem;
+  margin-bottom: 1rem;
+  border: 1px solid #000;
+  background-color: #fff;
+  font-size: 2rem;
+  text-align: right;
+  padding: 0 1rem;
+  overflow: hidden;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(15, 3rem);
+  grid-template-rows: 4rem repeat(5, 3rem);
+}
+
+button {
+  border: 1px solid #000;
+  background-color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.pressing {
+  transform: scale(1.1);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
+.keyF {
+  margin-bottom: 1rem;
+}
+
+.span2 {
+  grid-column: span 2;
+}
+
+.span3 {
+  grid-column: span 3;
+}
+
+.span7 {
+  grid-column: span 7;
+}
+
+.span2x2 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
